@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean id="userDB"
+          class="com.ioc.loose.coupling.UserDatabase"/>
+
+    <bean id="anotherDB"
+          class="com.ioc.loose.coupling.AnotherDatabase"/>
+
+    <bean id="webService"
+          class="com.ioc.loose.coupling.WebServiceDataProvider"/>
+
+    <!-- userDataProviderInterface has three implementation so 3 dependency injection can happen-->
+    <bean id="userManagerWithUserDB" class="com.ioc.loose.coupling.UserManager" >
+        <constructor-arg ref="userDB" />
+    </bean>
+
+    <bean id="userManagerWithAnotherDB" class="com.ioc.loose.coupling.UserManager" >
+        <constructor-arg ref="anotherDB" />
+    </bean>
+
+    <bean id="userManagerWithWebService" class="com.ioc.loose.coupling.UserManager" >
+        <constructor-arg ref="webService" />
+    </bean>
+
+
+</beans>
