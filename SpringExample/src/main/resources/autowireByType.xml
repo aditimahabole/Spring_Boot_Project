@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- for autowire byType there must be only single bean present of that type-->
+    <!-- below there are two bean specification and specification1 of Type Specification  -->
+    <!-- so the variable will get confused in finding bean  -->
+    <!-- The name(value of id) must not be similar it can be anything-->
+    <bean id="specification1" class="com.example.autowire.type.Specification">
+        <property name="make" value="Toyota"/>
+        <property name="model" value="Corolla"/>
+    </bean>
+    <!-- commet below in case of byType   -->
+
+<!--    <bean id="specification1" class="com.example.autowire.type.Specification">-->
+<!--        <property name="make" value="Toyota1"/>-->
+<!--        <property name="model" value="Corolla1"/>-->
+<!--    </bean>-->
+
+    <!--    id of Specification should match ref of Car-->
+    <bean id="myCar" class="com.example.autowire.type.Car" autowire="byType" />
+
+
+</beans>
