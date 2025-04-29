@@ -1,4 +1,4 @@
-package com.example.componentscan;
+package com.example.annotation;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 // name inside this and while making object the name should be same
 //then only it will work
 //Employee employee = (Employee) context.getBean("employee1", Employee.class); // will work when declared in App class
-@Component("employee")
+@Component("emp")
 public class Employee {
     // by default class name is converted to lowercase and bean is registered
     // when we use @Component
